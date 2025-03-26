@@ -17,6 +17,8 @@ const buildDefault = async (params: string[] = []) => {
   if (hasProjects) {
     params.push('--project', 'tsconfig.build.json', '--sourceRoot', 'lib')
   }
+  const command = `tsc ${params.join(' ')}`
+  console.log(command)
   execa('tsc', params).stdout.pipe(process.stdout)
 }
 
